@@ -1,0 +1,11 @@
+# Repository settings for branch protection
+# These settings require the GitHub Settings app or manual configuration
+# Documented here for reference:
+#
+# Branch protection rules for `main`:
+# - Require a pull request before merging
+# - Require status checks to pass (lint, test, build)
+# - Require branches to be up to date before merging
+# - Require conversation resolution before merging
+#
+# To configure: Settings > Branches > Add rule > Branch name pattern: `main`

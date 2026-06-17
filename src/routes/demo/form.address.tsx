@@ -21,13 +21,13 @@ function AddressForm() {
       phone: '',
     },
     validators: {
-      onBlur: ({ value }) => {
-        const errors = {
+      onBlur: (params) => {
+        const errors: { fields: Record<string, string> } = {
           fields: {},
-        } as {
-          fields: Record<string, string>
         }
-        if (value.fullName.trim().length === 0) {
+        const val = params.value as typeof params.value & { fullName?: string }
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+        if (val.fullName !== undefined && val.fullName.trim().length === 0) {
           errors.fields.fullName = 'Full name is required'
         }
         return errors

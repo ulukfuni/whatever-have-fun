@@ -123,11 +123,13 @@ function Messages({
                     // Guitar recommendation card
                     if (
                       part.type === 'tool-call' &&
+                      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
                       part.name === 'recommendGuitar' &&
                       part.output
                     ) {
                       return (
                         <div key={part.id} className="max-w-[80%] mx-auto">
+                          {/* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */}
                           <GuitarRecommendation id={String(part.output?.id)} />
                         </div>
                       )

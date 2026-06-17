@@ -1,4 +1,4 @@
-Welcome to your new TanStack Start app! 
+Welcome to your new TanStack Start app!
 
 # Getting Started
 
@@ -40,7 +40,6 @@ If you prefer not to use Tailwind CSS:
 
 ## Linting & Formatting
 
-
 This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
 
 ```bash
@@ -48,7 +47,6 @@ bun --bun run lint
 bun --bun run format
 bun --bun run check
 ```
-
 
 ## Deploy to Cloudflare Workers
 
@@ -61,7 +59,6 @@ This project uses the Cloudflare Vite plugin (configured in `vite.config.ts`) an
 For production env vars, run `wrangler secret put MY_VAR` for each secret listed in `.env.example`. Public (non-secret) vars go in `wrangler.jsonc` under `vars`.
 
 KV, D1, R2, and Durable Object bindings are configured in `wrangler.jsonc` — see https://developers.cloudflare.com/workers/wrangler/configuration/.
-
 
 # TanStack Chat Application
 
@@ -76,18 +73,21 @@ ANTHROPIC_API_KEY=your_anthropic_api_key
 ## ✨ Features
 
 ### AI Capabilities
-- 🤖 Powered by Claude 3.5 Sonnet 
+
+- 🤖 Powered by Claude 3.5 Sonnet
 - 📝 Rich markdown formatting with syntax highlighting
 - 🎯 Customizable system prompts for tailored AI behavior
 - 🔄 Real-time message updates and streaming responses (coming soon)
 
 ### User Experience
+
 - 🎨 Modern UI with Tailwind CSS and Lucide icons
 - 🔍 Conversation management and history
 - 🔐 Secure API key management
 - 📋 Markdown rendering with code highlighting
 
 ### Technical Features
+
 - 📦 Centralized state management with TanStack Store
 - 🔌 Extensible architecture for multiple AI providers
 - 🛠️ TypeScript for type safety
@@ -95,6 +95,7 @@ ANTHROPIC_API_KEY=your_anthropic_api_key
 ## Architecture
 
 ### Tech Stack
+
 - **Frontend Framework**: TanStack Start
 - **Routing**: TanStack Router
 - **State Management**: TanStack Store
@@ -108,7 +109,6 @@ Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
 ```bash
 pnpm dlx shadcn@latest add button
 ```
-
 
 ## Setting up Better Auth
 
@@ -126,15 +126,15 @@ Better Auth can work in stateless mode, but to persist user data, add a database
 
 ```typescript
 // src/lib/auth.ts
-import { betterAuth } from "better-auth";
-import { Pool } from "pg";
+import { betterAuth } from 'better-auth'
+import { Pool } from 'pg'
 
 export const auth = betterAuth({
   database: new Pool({
     connectionString: process.env.DATABASE_URL,
   }),
   // ... rest of config
-});
+})
 ```
 
 Then run migrations:
@@ -142,7 +142,6 @@ Then run migrations:
 ```bash
 bunx --bun @better-auth/cli migrate
 ```
-
 
 ## Setting up PostHog
 
@@ -153,8 +152,6 @@ bunx --bun @better-auth/cli migrate
 ### Optional Configuration
 
 - `VITE_POSTHOG_HOST` - Set this if you're using PostHog Cloud EU (`https://eu.i.posthog.com`) or self-hosting
-
-
 
 ## Routing
 
@@ -173,7 +170,7 @@ Now that you have two routes you can use a `Link` component to navigate between 
 To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
 
 ```tsx
-import { Link } from "@tanstack/react-router";
+import { Link } from '@tanstack/react-router'
 ```
 
 Then anywhere in your JSX you can use it like so:
@@ -241,11 +238,11 @@ const getServerTime = createServerFn({
 // Use in a component
 function MyComponent() {
   const [time, setTime] = useState('')
-  
+
   useEffect(() => {
     getServerTime().then(setTime)
   }, [])
-  
+
   return <div>Server time: {time}</div>
 }
 ```

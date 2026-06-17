@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition, no-shadow */
 import { useEffect, useRef } from 'react'
 import { useLiveQuery } from '@tanstack/react-db'
 
-import { messagesCollection, type Message } from '#/db-collections'
+import { messagesCollection  } from '#/db-collections'
+import type {Message} from '#/db-collections';
 
 import type { Collection } from '@tanstack/react-db'
 
@@ -26,11 +28,11 @@ function useStreamConnection(
       while (true) {
         const { done, value } = await reader.read()
         if (done) break
-        for (const chunk of decoder
+        for (const textChunk of decoder
           .decode(value, { stream: true })
           .split('\n')
-          .filter((chunk) => chunk.length > 0)) {
-          collection.insert(JSON.parse(chunk))
+          .filter((textChunk) => textChunk.length > 0)) {
+          collection.insert(JSON.parse(textChunk))
         }
       }
     }
