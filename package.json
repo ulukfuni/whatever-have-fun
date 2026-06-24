@@ -50,7 +50,7 @@
     "@tanstack/react-table": "latest",
     "@tanstack/router-plugin": "^1.132.0",
     "@tanstack/store": "latest",
-    "better-auth": "^1.5.3",
+    "better-auth": "^1.6.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "highlight.js": "^11.11.1",
